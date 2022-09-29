@@ -1,0 +1,8 @@
+#!/bin/bash
+
+funz_remove_new_line () {
+#I will remove all the new line in the file $1
+  tr -d "\n\r" < "$1" > "$1".temp
+  rm -f "$1"
+  mv -f "$1".temp "$1"
+}
