@@ -6,3 +6,9 @@ funz_remove_new_line () {
   rm -f "$1"
   mv -f "$1".temp "$1"
 }
+
+funz_sed_till_end_line () {
+#Will substitute $1 with $2 in the file $3
+#In case the $1 or $2 need to have a single or double quote, put a backslash before it (eg. \")
+  sed -i "s+$1$PARTITION_COLUMN.*+$1$2+g" "$3"
+}
