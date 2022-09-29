@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DockerLoginAws () {
+#Logging in to the AWS account with Docker in region $1 with aws account number $2
+  aws ecr get-login-password --region "$1" | docker login --username AWS --password-stdin "$2"
+}
