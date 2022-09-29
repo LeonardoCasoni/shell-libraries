@@ -3,7 +3,7 @@
 # Author: Leonardo Casoni
 # Made:________15/11/2019
 
-funz_menulogin () {
+DialogMenuLogin () {
 # Visualizza il menu di accesso con massimo 8 scelte visto che la 9 sara sempre Exit
 # Variabili attese 1=numeroscelte 2=Scelta1 3=Scelta2 etc...
 # Output atteso 1=Crea la variabile SCELTA
@@ -24,16 +24,16 @@ SCELTA=$(cat $TMPFILE); rm -f $TMPFILE
 rm -f "$TESTFILE"
 }
 
-funz_insertname () {
+DialogInsertName () {
 # Chiede nome.cognome per accesso
 # Output atteso 1=Crea la variabile NOME
 TMPFILE=/usr/tmp/tmpfile.txt
-dialog --nocancel  --title "Inserire nome.cognome" --inputbox "Digita nome.cognome tutto in minuscolo" "15" "45" 2>"$TMPFILE"
+dialog --nocancel --title "Inserire nome.cognome" --inputbox "Digita nome.cognome tutto in minuscolo" "15" "45" 2>"$TMPFILE"
 NOME=$(cat $TMPFILE)
 rm -f "$TMPFILE"
 }
 
-funz_insertpassword () {
+DialogInsertPassword () {
 # Inserimento password
 # Output atteso 1=Crea la variabile PASSNOTA
 TMPFILE=tmpfile.txt
@@ -43,7 +43,7 @@ PASSNOTA=$(echo "$PASSNOTA" | openssl enc -base64)
 rm -f "$TMPFILE"
 }
 
-funz_infobox () {
+DialogInfoBox () {
 # Invio informazioni a video
 # Variabili attese 1="messaggio da visualizzare"
 dialog --title "MESSAGGIO" --infobox "$1" "15" "45"
